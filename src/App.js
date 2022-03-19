@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 
+import './App.css';
+
 // render carriage returns as <br/> elements
 marked.setOptions({
 	gfm: true,
@@ -22,18 +24,25 @@ function App() {
 	}
 
 	return (
-		<div>
-			<textarea
-				id="editor"
-				value={rawText}
-				onChange={handleChange}
-			/>
+		<>
+			<main>
+				<textarea
+					id="editor"
+					value={rawText}
+					onChange={handleChange}
+				/>
 
-			<div
-				id="preview"
-				dangerouslySetInnerHTML={htmlMD}
-			/>
-		</div>
+				<section className="render">
+					<span>Preview</span>
+					<div id="preview"
+						dangerouslySetInnerHTML={htmlMD}
+					/>
+				</section>
+			</main>
+			<footer>
+				Oluwayomi Balogun &copy;{new Date().getFullYear()}
+			</footer>
+		</>
 	)
 }
 
