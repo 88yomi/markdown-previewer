@@ -25,12 +25,14 @@ function App() {
 
 	return (
 		<>
+			<h1 id="title">markdown previewer</h1>
 			<main>
 				<textarea
 					id="editor"
 					value={rawText}
 					onChange={handleChange}
 				/>
+				<div id="after-textarea" ></div>
 
 				<section className="render">
 					<span>Preview</span>

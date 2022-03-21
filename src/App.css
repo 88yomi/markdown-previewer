@@ -5,26 +5,51 @@
 }
 
 body {
-  font-size: 16px;
+	position: relative;
   background-color: #090a09;
   color: #f1ffff;
 	text-align: center;
 }
 
-main {
-	margin: auto;
-	width: 80vw;
-	/* overflow: hidden; */
-	height: calc(100vh - 2.5rem);
+h1#title {
+	font-family: 'Fugaz One', serif;
+	font-size: 2rem;
+	text-align: right;
+	text-transform: uppercase;
+	padding-top: 1rem;
+	margin-right: 10vw;
+	height: 3rem;
 }
+
+main {
+	margin: 0 auto;
+	margin-top: 1rem;
+	width: 80vw;
+	position: relative;
+	height: calc(100vh - 4rem);
+	}
 
 main textarea {
 	width: 90%;
 	height: 15rem;
-	/* height: 30%; */
 	max-height: 30%;
 	margin: 2rem auto;
 	padding: 0.5rem;
+	padding-top: 1rem;
+}
+
+#after-textarea::before {
+	content: 'type markdown here';
+	position: absolute;
+	top: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 90%;
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 0.8rem;
+	z-index: 5;	
+	color: red;
 }
 
 .render {
@@ -37,14 +62,15 @@ main textarea {
 	margin: 0 auto;
 	height: auto;
 	max-height: 60%;
+	/* height: 40%; */
 	overflow-x: hidden;
 }
 
 .render span {
 	display: block;
+	color: #090a09;
 	margin-bottom: 0.5rem;
 	margin-top: -0.6rem;
-	color: #090a09;
 }
 	
 .render > div {
@@ -65,4 +91,34 @@ footer {
   left: 0;
   height: 2.5rem;
   width: 100%;
+	/* display: none; */
+}
+
+@media screen and (min-width: 768px) {
+	main {
+		width: 90%;
+		display: flex;
+		margin-top: 2rem;
+		height: calc(100vh - 5rem);
+	}
+
+	main textarea {
+		width: 45%;
+		margin-top: 2rem;
+	}
+	
+	#after-textarea::before {
+		left: 20%;
+	}
+
+	.render {
+		width: 45%;	
+	}
+}
+
+@media screen and (max-width: 412px) {
+	h1#title {
+		font-size: 1.6rem;
+		white-space: nowrap;
+	}
 }
